@@ -12,7 +12,7 @@ public class Player extends BorderPane {
     MediaPlayer player;
     MediaView view;
     Pane mediaPane;
-
+    MediaBar mediaBar;
     public Player(String file){   // file is the path of the file we are going to load
 
         media = new Media(file);
@@ -21,6 +21,9 @@ public class Player extends BorderPane {
         mediaPane = new Pane();
         mediaPane.getChildren().add(view);
         setCenter(mediaPane);
+        mediaBar = new MediaBar(player);
+        setBottom(mediaBar);
+        setStyle("-fx-background-color: silver");
         player.play();
     }
 
