@@ -94,8 +94,3 @@ public class MediaBar extends HBox {  // we need this horizontal box to put at t
          });
      }
 }
-
-/// At Commit 3:
-// 1/ Make the pause button to work - to pause and start the video
-// 2/ The time slider started moving along with the current video duration and video can be moved to certain part of it using the slider
-// 3/ Volume slider is now able to control the Audio volume.

@@ -26,5 +26,4 @@ public class Player extends BorderPane {
         setStyle("-fx-background-color: silver");
         player.play();
     }
-
 }
