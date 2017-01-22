@@ -43,7 +43,7 @@ public class MediaBar extends HBox {  // we need this horizontal box to put at t
         getChildren().add(volumeSlider);
 
         pauseButton.setOnAction(new EventHandler<ActionEvent>(){
-           public void handle(ActionEvent ae) {
+           public void handle(ActionEvent e) {
                MediaPlayer.Status status = player.getStatus();
                if (status == MediaPlayer.Status.PLAYING){
                    if(player.getCurrentTime().greaterThanOrEqualTo(player.getTotalDuration())){ // if we reach end of video play it again

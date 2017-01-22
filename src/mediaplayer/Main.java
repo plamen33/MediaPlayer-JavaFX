@@ -1,25 +1,27 @@
 package mediaplayer;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.net.MalformedURLException;
-import javafx.stage.FileChooser;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 
 public class Main extends Application {
 
     Player player;
     FileChooser fileChooser;
-    @Override
-    public void start(Stage primaryStage) throws Exception{
+
+    public void start(final Stage primaryStage) {
+
 
         MenuItem openVideo = new MenuItem("Open media");
         Menu file = new Menu("File");
@@ -37,6 +39,7 @@ public class Main extends Application {
                 if (file != null) {
                     try {
                         player = new Player(file.toURI().toURL().toExternalForm());
+                        player.setTop(menu);
                         Scene scene = new Scene(player, 720, 535, Color.SNOW);
                         primaryStage.setScene(scene);
                     }
@@ -50,8 +53,9 @@ public class Main extends Application {
 
         });
 
-        Player player = new Player("file:///D:/Downloads/arch.mp4");
-        Scene scene =  new Scene(player, 720, 510, Color.SNOW);
+        player = new Player("file:///D:/Downloads/arch.mp4");
+        player.setTop(menu);
+        Scene scene =  new Scene(player, 720, 535, Color.SNOW);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Media Player JavaFX");
         primaryStage.getIcons().add(new Image(getClass().getResource("mp.png").toExternalForm()));
